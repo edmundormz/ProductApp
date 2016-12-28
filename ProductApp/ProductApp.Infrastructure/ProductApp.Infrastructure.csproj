@@ -49,7 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="ProductContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -57,9 +57,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ProductApp.core\ProductApp.core.csproj">
+    <ProjectReference Include="..\ProductApp.core\ProductApp.Core.csproj">
       <Project>{257dd352-f326-43ba-9d6e-a325a80fc465}</Project>
-      <Name>ProductApp.core</Name>
+      <Name>ProductApp.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

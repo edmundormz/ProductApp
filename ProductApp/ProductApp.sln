@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductApp.core", "ProductApp.core\ProductApp.core.csproj", "{257DD352-F326-43BA-9D6E-A325A80FC465}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductApp.Core", "ProductApp.core\ProductApp.Core.csproj", "{257DD352-F326-43BA-9D6E-A325A80FC465}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductApp.Infrastructure", "ProductApp.Infrastructure\ProductApp.Infrastructure.csproj", "{0FF266A1-BAF9-46CF-A2BE-2BC159FED97F}"
 EndProject
