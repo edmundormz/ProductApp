@@ -8,13 +8,19 @@ using System.Web;
 using System.Web.Mvc;
 using ProductApp.Core;
 using ProductApp.Infrastructure;
+using ProductApp.Core.Interfaces;
 
 namespace ProductApp.Web.Controllers
 {
     public class ProductsController : Controller
     {
         //private ProductContext db = new ProductContext();
-        private ProductRepository db = new ProductRepository();
+        //private ProductRepository db = new ProductRepository();
+        IProductRepository db;
+        public ProductsController(IProductRepository db)
+        {
+            this.db = db;
+        }
 
         // GET: Products
         public ActionResult Index()
