@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,7 +11,7 @@ namespace ProductApp.Core.Interfaces
         void Add(Product p);
         void Edit(Product p);
         void Remove(int Id);
-        IEnumerable GetProducts();
+        IEnumerable<Product> GetProducts();
         Product FindById(int Id);
     }
 }

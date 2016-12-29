@@ -1,14 +1,14 @@
 ﻿using ProductApp.Core;
 using ProductApp.Core.Interfaces;
 using System;
-using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace ProductApp.Infrastructure
 {
-    class ProductRepository:IProductRepository
+    public class ProductRepository:IProductRepository
     {
         ProductContext context = new ProductContext();
         public void Add(Product p)
@@ -28,7 +28,7 @@ namespace ProductApp.Infrastructure
             context.SaveChanges();
         }
 
-        public IEnumerable GetProducts()
+        public IEnumerable<Product> GetProducts()
         {
             return context.Products;
         }
