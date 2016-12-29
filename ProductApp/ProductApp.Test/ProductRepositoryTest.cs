@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ProductApp.Infrastructure;
 using System.Linq;
+using ProductApp.Core;
 
 namespace ProductApp.Test
 {
@@ -25,6 +26,22 @@ namespace ProductApp.Test
             Assert.IsNotNull(result);
             var numberOfRecords = result.ToList().Count;
             Assert.AreEqual(2, numberOfRecords);
+        }
+
+        [TestMethod]
+        public void IsRepositoryAddsProduct()
+        {
+            Product productToInsert = new Product
+            {
+                Id = 3,
+                inStock = true,
+                Name = "Salt",
+                Price = 17
+            };
+            Repo.Add(productToInsert);
+            var result = Repo.GetProducts();
+            var numberOfRecords = result.ToList().Count;
+            Assert.AreEqual(3, numberOfRecords);
         }
     }
 }
