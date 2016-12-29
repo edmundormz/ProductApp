@@ -13,12 +13,14 @@ namespace ProductApp.Web.Controllers
 {
     public class ProductsController : Controller
     {
-        private ProductContext db = new ProductContext();
+        //private ProductContext db = new ProductContext();
+        private ProductRepository db = new ProductRepository();
 
         // GET: Products
         public ActionResult Index()
         {
-            return View(db.Products.ToList());
+            //return View(db.Products.ToList());
+            return View(db.GetProducts());
         }
 
         // GET: Products/Details/5
@@ -28,7 +30,8 @@ namespace ProductApp.Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Product product = db.Products.Find(id);
+            //Product product = db.Products.Find(id);
+            Product product = db.FindById(Convert.ToInt32(id));
             if (product == null)
             {
                 return HttpNotFound();
@@ -51,8 +54,9 @@ namespace ProductApp.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Products.Add(product);
-                db.SaveChanges();
+                //db.Products.Add(product);
+                //db.SaveChanges();
+                db.Add(product);
                 return RedirectToAction("Index");
             }
 
@@ -66,7 +70,8 @@ namespace ProductApp.Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Product product = db.Products.Find(id);
+            //Product product = db.Products.Find(id);
+            Product product = db.FindById(Convert.ToInt32(id));
             if (product == null)
             {
                 return HttpNotFound();
@@ -83,8 +88,9 @@ namespace ProductApp.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(product).State = EntityState.Modified;
-                db.SaveChanges();
+                //db.Entry(product).State = EntityState.Modified;
+                //db.SaveChanges();
+                db.Edit(product);
                 return RedirectToAction("Index");
             }
             return View(product);
@@ -97,7 +103,7 @@ namespace ProductApp.Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Product product = db.Products.Find(id);
+            Product product = db.FindById(Convert.ToInt32(id));
             if (product == null)
             {
                 return HttpNotFound();
@@ -110,9 +116,10 @@ namespace ProductApp.Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Product product = db.Products.Find(id);
-            db.Products.Remove(product);
-            db.SaveChanges();
+            Product product = db.FindById(Convert.ToInt32(id));
+            //db.Products.Remove(product);
+            //db.SaveChanges();
+            db.Remove(id);
             return RedirectToAction("Index");
         }
 
@@ -120,7 +127,7 @@ namespace ProductApp.Web.Controllers
         {
             if (disposing)
             {
-                db.Dispose();
+                //db.Dispose();
             }
             base.Dispose(disposing);
         }
